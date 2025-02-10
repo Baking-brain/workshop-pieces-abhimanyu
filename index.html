@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Random Car Facts</title>
+<meta charset="UTF-8">
+<style>
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#fact-container {
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>Fun Car Facts!</h1>
+
+<div id="fact-container">
+  <p id="car-fact">Click the button for a random car fact!</p>
+</div>
+
+<button onclick="getNewFact()">Show Me Another Fact</button>
+
+<script>
+const facts = [
+  {"fact": "The first practical automobile was built by Karl Benz in 1885–1886, called the Benz Patent-Motorwagen."},
+  {"fact": "The Bugatti Chiron Super Sport 300+ holds the record for the fastest production car, reaching 304.77 mph (490.48 km/h)."},
+  {"fact": "The first electric car was developed in the 1830s, decades before gasoline-powered cars became common."},
+  {"fact": "Since their introduction, airbags have saved over 50,000 lives in the U.S. alone."},
+  {"fact": "The Toyota Corolla is the best-selling car in history, with over 50 million units sold since 1966."},
+  {"fact": "White is the most popular car color worldwide, followed by black and gray."},
+  {"fact": "A Formula 1 car can go from 0 to 60 mph in about 2.5 seconds, faster than most supercars."},
+  {"fact": "The Toyota Land Cruiser is known for its longevity, with many models lasting over 300,000 miles."},
+  {"fact": "The average modern car has around 30,000 individual parts, including bolts, screws, and engine components."},
+  {"fact": "Henry Ford revolutionized car manufacturing in 1913 by introducing the moving assembly line, reducing car production time from 12 hours to just 1.5 hours."}
+];
+
+let currentFact = null;
+
+function getRandomFact() {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  return facts[randomIndex];
+}
+
+function displayFact(fact) {
+  document.getElementById("car-fact").textContent = fact.fact;
+}
+
+function getNewFact() {
+  currentFact = getRandomFact();
+  displayFact(currentFact);
+}
+
+// Display an initial fact on page load
+getNewFact(); 
+</script>
+
+</body>
+</html>
+
